@@ -178,6 +178,13 @@
   - Giữ nguyên `monorepo-root` (lib 158 files, shared/cheatsheets, examples 06_xpath_static) và vhost `auto.demofull.test.conf` + `hosts` entry để tái dùng.
 - **Bài học:** Tách rõ tài sản lâu dài (monorepo) vs dữ liệu tạm (tool-output, Temp) vs demo ngoài — dọn theo nhóm, giữ vhost để không phải fix DNS lại.
 
+### [2026-09-23] [Quyết định] Đóng gói monorepo-20260923.zip (full kèm .git)
+- **Bối cảnh:** User yêu cầu làm sạch để đóng gói, chọn full kèm `.git` + mặc định tên/lưu ngoài `monorepo-root`. Trước đó đã dọn `__pycache__`, demo ngoài rỗng, ngoài monorepo chỉ còn 2 vhost + hosts.
+- **Quyết định:**
+  - Verify `git status` clean, grep `shopee` active code về 0 (chỉ còn log lịch sử EXPERIENCE), `__pycache__` clean, lib 12 modules đủ.
+  - Ghi log này + commit, nén `D:\MarkLeo\Repo\monorepo-20260923.zip` (kèm `.git`, giữ `.github/workflows`, loại trừ rác hệ thống Thumbs.db/desktop.ini), verify SHA256 + đủ lib/shared/4 docs.
+- **Bài học:** Đóng gói phải ngoài monorepo để tránh vòng lặp, kèm `.git` giữ lịch sử, `.gitignore` đã cover `__pycache__/vendor/node_modules`.
+
 ---
 
 <!-- Thêm log mới ở trên dòng này, giữ log cũ bên dưới để dễ tra cứu -->
