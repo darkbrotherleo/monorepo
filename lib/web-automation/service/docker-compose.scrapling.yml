@@ -1,0 +1,11 @@
+services:
+  scrapling:
+    image: ghcr.io/d4vinci/scrapling:latest
+    ports:
+      - "3001:3001"
+    volumes:
+      - scrapling-data:/data
+    environment:
+      - SCRAPLING_MCP_TRANSPORT=http
+volumes:
+  scrapling-data:

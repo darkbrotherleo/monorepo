@@ -1,0 +1,15 @@
+{
+    "name": "monorepo/payment",
+    "require": {
+        "php": ">=8.3",
+        "stripe/stripe-php": "^10.0",
+        "omnipay/omnipay": "^3.0",
+        "phpviet/omnipay-vnpay": "^1.0",
+        "jackiedo/omnipay-vnpay": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Monorepo\\Payment\\": "src/"
+        }
+    }
+}

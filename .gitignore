@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+
+# Build
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Monorepo: không ignore lib/ và shared/ — đây là code chính cần commit
+# Nhưng ignore dự án tạm nếu ai lỡ tạo nhầm trong monorepo
+my-project/
+test-project/
+tmp/
+temp/

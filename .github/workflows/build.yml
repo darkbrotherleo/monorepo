@@ -1,0 +1,36 @@
+name: build
+on: [push, pull_request]
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.3']
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_DATABASE: ten_du_an_test
+          MYSQL_ROOT_PASSWORD: root
+        ports: ['3306:3306']
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer, phpstan, php-cs-fixer
+      - run: composer install --no-interaction --prefer-dist
+        working-directory: lib/php-stack/starter
+      - run: composer audit
+        working-directory: lib/php-stack/starter
+      - run: vendor/bin/phpstan analyse --level=max src/ || true
+        working-directory: lib/php-stack/starter
+      - run: vendor/bin/php-cs-fixer fix --dry-run --diff || true
+        working-directory: lib/php-stack/starter
+      - run: vendor/bin/pest || vendor/bin/phpunit
+        working-directory: lib/php-stack/starter
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        with:
+          args: detect --source . --no-git

@@ -1,0 +1,12 @@
+services:
+  browser:
+    image: ghcr.io/ntegrals/openbrowser:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - browser-data:/data
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+volumes:
+  browser-data:

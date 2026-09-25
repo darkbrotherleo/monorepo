@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "scrapling": {
+      "command": "scrapling",
+      "args": ["mcp", "serve"],
+      "env": {},
+      "note": "One-shot + session tools, strip prompt-injection, screenshots, CDP. Docs: scrapling.readthedocs.io/en/latest/mcp.html"
+    }
+  }
+}

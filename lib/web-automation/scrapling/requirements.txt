@@ -1,0 +1,4 @@
+# Scrapling sidecar — MCP-first (bạn sẽ dùng nhiều)
+# Cài: pip install "scrapling[fetchers,ai]" && scrapling install
+# Hoặc Docker: ghcr.io/d4vinci/scrapling:latest
+scrapling[fetchers,ai]>=0.3

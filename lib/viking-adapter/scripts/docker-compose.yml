@@ -1,0 +1,12 @@
+services:
+  openviking:
+    image: ghcr.io/volcengine/openviking:latest
+    ports:
+      - "1933:1933"  # API
+      - "1934:1934"  # Studio
+    volumes:
+      - viking-data:/data
+    environment:
+      - OPENVIKING_API_KEY=${OPENVIKING_API_KEY:-}
+volumes:
+  viking-data:
