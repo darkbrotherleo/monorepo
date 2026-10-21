@@ -14,7 +14,7 @@
 Không chạy 2 memory cùng lúc trên cùng 1 dự án (tốn 2 worker/DB/port).
 
 ## Quy ước chung
-- `lib/claude-mem` và `lib/mempalace` là 2 implementation, `shared/memory` là router quy ước.
+- `lib/claude-mem` và `lib/mempalace` là 2 implementat  ion, `shared/memory` là router quy ước.
 - Agent đọc `router.md` trước khi chọn lệnh `search`/`mine`/`wake-up`.
 - Cài đặt: `lib/claude-mem/scripts/install.ps1` (npx) và `lib/mempalace/scripts/install.ps1` (uv tool).
 
